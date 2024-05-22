@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <div class="display">
+            <h2><input type="number" id="Random" placeholder="Password length?"></h2>
+            <button type="generate" id="generate" class="btn" onclick="createPassword()">Generate</button>
+            <button id="copy-button" onclick="copyPassword()"> <img src="Copy.png" class="image" /></button>
+           
+        </div>
+        <div class="results-box"> </div>
+    </div>
+    
+    <script>
+        let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        let numbers = "0123456789";
+        let symbols = "@#$%^&*()_!?><-=+}{[]";
+        let allChars = upperCase + lowerCase + numbers + symbols;
+    
+        function createPassword(){
+            let password = "";
+            let length = parseInt(passwordBox.value);
+    
+            while(password.length < length){
+                password += allChars[Math.floor(Math.random() * allChars.length)];
+            }
+            
+            const resultsBox = document.querySelector('.results-box');
+            resultsBox.innerHTML = `<p>Generated Password: ${password}</p>`;
+            
+            // Animate the copy button
+            const copyButton = document.getElementById("copy-button");
+            copyButton.style.transform = "translateX(0px)";
+            setTimeout(() => {
+                copyButton.style.transform = "translateX(10px)";
+                setTimeout(() => {
+                    copyButton.style.transform = "translateX(0px)";
+                }, 100);
+            }, 0);
+        }
+    
+        function copyPassword(){
+            const passwordText = document.querySelector('.results-box p').textContent.split(":")[1].trim();
+            const passwordInput = document.createElement('input');
+            passwordInput.value = passwordText;
+            document.body.appendChild(passwordInput);
+            passwordInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(passwordInput);
+        }
+    
+        const passwordBox = document.getElementById("Random");
+        const resultsBox = document.querySelector('.results-box');
+    
+        passwordBox.addEventListener('input', () => {
+            createPassword();
+        });
+    </script>
