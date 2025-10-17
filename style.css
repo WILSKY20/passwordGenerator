@@ -4,76 +4,85 @@ body {
     line-height: 1.5;
     margin: 0;
     padding: 0;
-    background-color:#8fada1;
-}
-
-.container {
+    background-color: #8fada1;
+  }
+  
+  .container {
     margin: 0 auto;
     width: 80%;
-    max-width: 700px;
+    max-width: 500px;
     text-align: center;
-}
-
-h1{
+  }
+  
+  h1 {
     font-size: 60px;
     margin-top: 50px;
-    color:#0207049d;
+    color: #0207049d;
     border-bottom: 7px solid #49804b;
-    border-bottom-style:dashed;
-}
-
-.display {
+    border-bottom-style: dashed;
+  }
+  
+  .display {
     border: 1px solid transparent;
     padding: 20px;
     margin-top: -10px;
     border-radius: 5px;
-    height: 125px;
-}
-
-.display input {
+    height: auto;
+  }
+  
+  .display input {
     width: 100%;
+    box-sizing: border-box;
     height: 40px;
     font-size: 24px;
     border: none;
     border-radius: 5px;
-}
-
-button {
-    position: relative;
-    top: -10px; /* added this property */
+    margin-bottom: 10px;
+  }
+  
+  button {
     background-color: #49804b;
     color: #fff9f9;
     border: none;
     padding: 10px 20px;
     font-size: 30px;
     cursor: pointer;
-    border: none;
     border-radius: 5px;
-}
-
-.results-box {
+    margin: 5px;
+  }
+  
+  .results-box {
     border: 1px solid transparent;
     border-radius: 5px;
-    padding: 20px;
+    padding: 30px;
     margin-top: 20px;
-    font-size: 45px;
     text-align: center;
-}
-
-#copy-button {
-    position: relative;
-    width: 75px;
-    height: 75px;
-    margin-left: 45px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-}
-
-.image {
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    margin-left: -35px;
-    margin-top: -30px;
-}
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .password-display {
+    font-size: 32px;
+    font-weight: bold;
+    color: #020704;
+    word-break: break-all;
+    margin-bottom: 10px;
+    font-family: monospace;
+  }
+  
+  .password-length {
+    font-size: 14px;
+    color: #020704;
+  }
+  
+  #copy-button {
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #49804b;
+    transition: transform 0.1s ease;
+  }
+  
+  #copy-button:hover {
+    background-color: #356933;
+  }
